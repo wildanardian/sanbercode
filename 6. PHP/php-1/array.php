@@ -95,7 +95,14 @@
             array("Eleven",12,"El","Alive")
         );
 
-        echo '<pre>'; print_r($data); echo '</pre>';
+        foreach($data as $bio){
+            echo "Name : ".$bio[0]."<br>";
+            echo "Age : ".$bio[1]."<br>";
+            echo "Aliases : ".$bio[2]."<br>";
+            echo "Status : ".$bio[3]."<br><br>";
+        }
+
+        
         
     ?>
 </body>
