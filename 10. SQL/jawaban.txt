@@ -1,0 +1,49 @@
+JAWABAN SQL
+
+1. CREATE DATABASE myshop;
+
+2. CREATE TABLE users (
+        id INT AUTO_INCREMENT PRIMARY KEY,
+        name VARCHAR(255),
+        email VARCHAR(255),
+        password VARCHAR(255)
+   );
+
+   CREATE TABLE categories(
+        id INT AUTO_INCREMENT PRIMARY KEY,
+        name VARCHAR(255)
+   );
+
+   CREATE TABLE items(
+       id INT AUTO_INCREMENT PRIMARY KEY,
+       name VARCHAR(255),
+       description VARCHAR(255),
+       price INT,
+       stock INT,
+       category_id INT,
+       FOREIGN KEY(category_id) REFERENCES cateogories(id)
+   );
+
+3. INSERT INTO `users` (`id`, `name`, `email`, `password`) VALUES 
+    (NULL, 'John Doe', 'john@doe.com', 'john123'), 
+    (NULL, 'Jane Doe', 'jane@doe.com', 'jenita123');
+
+   INSERT INTO `categories` (`id`, `name`) VALUES 
+    (NULL, 'gadget'), 
+    (NULL, 'cloth'), 
+    (NULL, 'men'), 
+    (NULL, 'women'), 
+    (NULL, 'branded');
+
+   INSERT INTO `items` (`id`, `name`, `description`, `price`, `stock`, `category_id`) VALUES 
+   (NULL, 'Sumsang b50', 'hape keren dari merek sumsang', '4000000', '100', '1'), 
+   (NULL, 'Uniklooh', 'baju keren dari brand ternama', '500000', '50', '2'), 
+   (NULL, 'IMHO Watch', 'jam tangan anak yang jujur banget', '2000000', '10', '1');
+
+4. a) SELECT name, email FROM users;
+   b) - SELECT * FROM items WHERE price > 1000000;
+      - SELECT * FROM items WHERE name LIKE '%sang%';
+   c) SELECT i.name, i.description, i.price, i.stock, c.name FROM items i JOIN categories c ON c.id=i.category_id;
+
+5. UPDATE items SET price=2500000 WHERE name='Sumsang b50';
+    
